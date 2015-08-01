@@ -11,18 +11,25 @@ all: testsuite-all
 # .............................................................................
 # testsuite executables
 
-testsuite-all: src/testsuite/vec3test
+testsuite-all: src/testsuite/vec3test src/testsuite/spheretest
 
 src/testsuite/vec3test: src/testsuite/vec3test.o
+
+src/testsuite/spheretest: src/testsuite/spheretest.o src/mesh/sphere.o
 
 
 # .............................................................................
 # testsuite objects
 
-src/testsuite/vec3test.o: src/geometry/vec3.h src/testsuite/testutils.h
+src/testsuite/vec3test.o: src/geometry/vec3.hpp src/testsuite/testutils.hpp
+
+src/testsuite/spheretest.o: src/geometry/vec3.hpp src/testsuite/testutils.hpp \
+	src/mesh/sphere.o
 
 # .............................................................................
 # objects
+
+src/mesh/sphere.o: src/geometry/vec3.hpp src/mesh/sphere.hpp
 
 
 # .............................................................................
@@ -30,3 +37,5 @@ src/testsuite/vec3test.o: src/geometry/vec3.h src/testsuite/testutils.h
 
 clean:
 	find . -name "*.o" -type f -delete
+	rm src/testsuite/vec3test
+	rm src/testsuite/spheretest
