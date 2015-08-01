@@ -33,9 +33,11 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="../src/geometry/vec3.cpp" />
-		<Unit filename="../src/geometry/vec3.h" />
-		<Unit filename="../src/testsuite/testutils.h" />
+		<Unit filename="../src/geometry/vec3.hpp" />
+		<Unit filename="../src/mesh/sphere.cpp" />
+		<Unit filename="../src/mesh/sphere.hpp" />
+		<Unit filename="../src/testsuite/spheretest.cpp" />
+		<Unit filename="../src/testsuite/testutils.hpp" />
 		<Unit filename="../src/testsuite/vec3test.cpp" />
 		<Extensions>
 			<code_completion />
