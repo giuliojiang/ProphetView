@@ -34,8 +34,11 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="../src/geometry/vec3.hpp" />
+		<Unit filename="../src/integrator/directspheres.cpp" />
+		<Unit filename="../src/integrator/directspheres.hpp" />
 		<Unit filename="../src/mesh/sphere.cpp" />
 		<Unit filename="../src/mesh/sphere.hpp" />
+		<Unit filename="../src/testsuite/spheresRenderMain.cpp" />
 		<Unit filename="../src/testsuite/spheretest.cpp" />
 		<Unit filename="../src/testsuite/testutils.hpp" />
 		<Unit filename="../src/testsuite/vec3test.cpp" />
