@@ -74,28 +74,30 @@ class Vec3
         }
         return Vec3<T>(x, y, z);
     }
+    
+    Vec3<T> operator * (Vec3<T> v)
+    {
+        return Vec3<T>(x*v.x, y*v.y, z*v.z);
+    }
 
     Vec3<T> operator * (T f)
     {
         return Vec3<T>(x*f, y*f, z*f);
     }
 
-    Vec3<T> operator * (Vec3<T> &v)
-    {
-        return Vec3<T>(x*v.x, y*v.y, z*v.z);
-    }
+
 
     T dot(Vec3<T> &v)
     {
         return x*v.x + y*v.y + z*v.z;
     }
 
-    Vec3<T> operator + (Vec3<T> &v)
+    Vec3<T> operator + (Vec3<T> v)
     {
         return Vec3<T>(x+v.x, y+v.y, z+v.z);
     }
 
-    Vec3<T> operator - (Vec3<T> &v)
+    Vec3<T> operator - (Vec3<T> v)
     {
         return Vec3<T>(x-v.x, y-v.y, z-v.z);
     }
