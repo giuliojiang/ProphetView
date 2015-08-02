@@ -27,7 +27,7 @@ Sphere::Sphere(Vec3f _center, double _radius, Vec3f _surfaceColor)
     emissionColor = Vec3f(0);
 }
 
-bool Sphere::intersect(Vec3f &rayorig, Vec3f &raydir, double &t0, double &t1)
+bool Sphere::intersect(Vec3f rayorig, Vec3f raydir, double &t0, double &t1)
 {
     Vec3f l = center - rayorig;
     double tca = l.dot(raydir);

@@ -19,7 +19,7 @@ public:
 
     Sphere(Vec3f _center, double _radius, Vec3f _surfaceColor);
 
-    bool intersect(Vec3f &rayorig, Vec3f &raydir, double &t0, double &t1);
+    bool intersect(Vec3f rayorig, Vec3f raydir, double &t0, double &t1);
 
     friend std::ostream& operator << (std::ostream &os, Sphere s)
     {
