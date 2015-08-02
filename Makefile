@@ -11,11 +11,16 @@ all: testsuite-all
 # .............................................................................
 # testsuite executables
 
-testsuite-all: src/testsuite/vec3test src/testsuite/spheretest
+testsuite-all: src/testsuite/vec3test src/testsuite/spheretest \
+	src/testsuite/spheresRenderMain
 
 src/testsuite/vec3test: src/testsuite/vec3test.o
 
 src/testsuite/spheretest: src/testsuite/spheretest.o src/mesh/sphere.o
+
+src/testsuite/spheresRenderMain: src/mesh/sphere.o \
+	src/integrator/directspheres.o \
+	src/testsuite/spheresRenderMain.o
 
 
 # .............................................................................
@@ -23,13 +28,23 @@ src/testsuite/spheretest: src/testsuite/spheretest.o src/mesh/sphere.o
 
 src/testsuite/vec3test.o: src/geometry/vec3.hpp src/testsuite/testutils.hpp
 
-src/testsuite/spheretest.o: src/geometry/vec3.hpp src/testsuite/testutils.hpp \
+src/testsuite/spheretest.o: src/geometry/vec3.hpp \
+	src/testsuite/testutils.hpp \
 	src/mesh/sphere.o
+
+src/testsuite/spheresRenderMain.o: src/geometry/vec3.hpp \
+	src/mesh/sphere.hpp \
+	src/testsuite/testutils.hpp\
+	src/integrator/directspheres.hpp
 
 # .............................................................................
 # objects
 
 src/mesh/sphere.o: src/geometry/vec3.hpp src/mesh/sphere.hpp
+
+src/integrator/directspheres.o: src/geometry/vec3.hpp \
+	src/mesh/sphere.hpp \
+	src/integrator/directspheres.hpp
 
 
 # .............................................................................
@@ -39,3 +54,5 @@ clean:
 	find . -name "*.o" -type f -delete
 	rm src/testsuite/vec3test
 	rm src/testsuite/spheretest
+	rm src/testsuite/spheresRenderMain
+	rm src/testsuite/untitled.ppm
