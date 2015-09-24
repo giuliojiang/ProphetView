@@ -12,7 +12,8 @@ all: testsuite-all
 # testsuite executables
 
 testsuite-all: src/testsuite/vec3test src/testsuite/spheretest \
-	src/testsuite/spheresRenderMain
+	src/testsuite/spheresRenderMain \
+	src/testsuite/cameraPerspectiveTest
 
 src/testsuite/vec3test: src/testsuite/vec3test.o
 
@@ -22,6 +23,7 @@ src/testsuite/spheresRenderMain: src/mesh/sphere.o \
 	src/integrator/directspheres.o \
 	src/testsuite/spheresRenderMain.o
 
+src/testsuite/cameraPerspectiveTest: src/camera/cameraPerspective.o src/testsuite/cameraPerspectiveTest.o
 
 # .............................................................................
 # testsuite objects
@@ -37,6 +39,8 @@ src/testsuite/spheresRenderMain.o: src/geometry/vec3.hpp \
 	src/testsuite/testutils.hpp\
 	src/integrator/directspheres.hpp
 
+src/testsuite/cameraPerspectiveTest.o: src/camera/cameraPerspective.hpp
+
 # .............................................................................
 # objects
 
@@ -45,6 +49,8 @@ src/mesh/sphere.o: src/geometry/vec3.hpp src/mesh/sphere.hpp
 src/integrator/directspheres.o: src/geometry/vec3.hpp \
 	src/mesh/sphere.hpp \
 	src/integrator/directspheres.hpp
+
+src/camera/cameraPerspective.o: src/camera/cameraPerspective.hpp
 
 
 # .............................................................................
