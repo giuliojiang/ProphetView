@@ -85,11 +85,18 @@ class Vec3
         return Vec3<T>(x*f, y*f, z*f);
     }
 
-
-
     T dot(Vec3<T> &v)
     {
         return x*v.x + y*v.y + z*v.z;
+    }
+    
+    Vec3<T> cross(Vec3<T> v)
+    {
+        return Vec3<T>(
+            y*v.z - z*v.y,
+            z*v.x - x*v.z,
+            x*v.y - y*v.x
+                    );
     }
 
     Vec3<T> operator + (Vec3<T> v)
