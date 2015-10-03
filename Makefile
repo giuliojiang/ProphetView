@@ -57,8 +57,8 @@ src/camera/cameraPerspective.o: src/camera/cameraPerspective.hpp
 # clean
 
 clean:
-	find . -name "*.o" -type f -delete
-	rm src/testsuite/vec3test
-	rm src/testsuite/spheretest
-	rm src/testsuite/spheresRenderMain
-	rm src/testsuite/untitled.ppm
+	- find . -name "*.o" -type f -delete
+	- rm src/testsuite/vec3test
+	- rm src/testsuite/spheretest
+	- rm src/testsuite/spheresRenderMain
+	- rm src/testsuite/untitled.ppm
