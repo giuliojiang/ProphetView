@@ -9,4 +9,11 @@ CameraPerspective::CameraPerspective(int _framePixelsX, int _framePixelsY, Vec3f
     upDirection = _upDirection;
     focalLength = _focalLength;
     frameSize = _frameSize;
+    
+    // calculate the Right direction vector
+    // Right = norm ( view X up )
+    Vec3f rightDirection = (viewDirection.cross(upDirection)).getNormalized();
+    std::cout << "rightDirection calculated is: " << rightDirection << std::endl;
+    
+    
 }
