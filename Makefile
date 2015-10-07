@@ -62,3 +62,4 @@ clean:
 	- rm src/testsuite/spheretest
 	- rm src/testsuite/spheresRenderMain
 	- rm src/testsuite/untitled.ppm
+	- rm src/testsuite/cameraPerspectiveTest
