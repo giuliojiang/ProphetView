@@ -9,36 +9,37 @@
 #include <iostream>
 #include <cassert>
 
-template<class T>
-class Vec3
+#define M_PI 3.14159265359
+
+class Vec3f
 {
     public:
 
 // ===================================================================
 // members
 
-    T x;
-    T y;
-    T z;
+    double x;
+    double y;
+    double z;
 
 // ===================================================================
 // Constructors
 
-    Vec3<T>()
+    Vec3f()
     {
         x = 0;
         y = 0;
         z = 0;
     }
 
-    Vec3<T>(T _a)
+    Vec3f(double _a)
     {
         x = _a;
         y = _a;
         z = _a;
     }
 
-    Vec3<T>(T _x, T _y, T _z)
+    Vec3f(double _x, double _y, double _z)
     {
         x = _x;
         y = _y;
@@ -50,7 +51,7 @@ class Vec3
 
     void normalize()
     {
-        T len2 = length2();
+        double len2 = length2();
         if (len2 > 0)
         {
             x /= sqrt(len2);
@@ -59,57 +60,57 @@ class Vec3
         }
     }
 
-    Vec3<T> getNormalized()
+    Vec3f getNormalized()
     {
-        T len2 = length2();
-        T newX = x;
-        T newY = y;
-        T newZ = z;
+        double len2 = length2();
+        double newX = x;
+        double newY = y;
+        double newZ = z;
         if (len2 > 0)
         {
             newX = x / len2;
             newY = y / len2;
             newZ = z / len2;
-            return Vec3<T>(newX, newY, newZ);
+            return Vec3f(newX, newY, newZ);
         }
-        return Vec3<T>(x, y, z);
+        return Vec3f(x, y, z);
     }
     
-    Vec3<T> operator * (Vec3<T> v)
+    Vec3f operator * (Vec3f v)
     {
-        return Vec3<T>(x*v.x, y*v.y, z*v.z);
+        return Vec3f(x*v.x, y*v.y, z*v.z);
     }
 
-    Vec3<T> operator * (T f)
+    Vec3f operator * (double f)
     {
-        return Vec3<T>(x*f, y*f, z*f);
+        return Vec3f(x*f, y*f, z*f);
     }
 
-    T dot(Vec3<T> &v)
+    double dot(Vec3f &v)
     {
         return x*v.x + y*v.y + z*v.z;
     }
     
-    Vec3<T> cross(Vec3<T> v)
+    Vec3f cross(Vec3f v)
     {
-        return Vec3<T>(
+        return Vec3f(
             y*v.z - z*v.y,
             z*v.x - x*v.z,
             x*v.y - y*v.x
                     );
     }
 
-    Vec3<T> operator + (Vec3<T> v)
+    Vec3f operator + (Vec3f v)
     {
-        return Vec3<T>(x+v.x, y+v.y, z+v.z);
+        return Vec3f(x+v.x, y+v.y, z+v.z);
     }
 
-    Vec3<T> operator - (Vec3<T> v)
+    Vec3f operator - (Vec3f v)
     {
-        return Vec3<T>(x-v.x, y-v.y, z-v.z);
+        return Vec3f(x-v.x, y-v.y, z-v.z);
     }
 
-    Vec3<T>& operator += (Vec3<T> v)
+    Vec3f& operator += (Vec3f v)
     {
         x += v.x;
         y += v.y;
@@ -117,7 +118,7 @@ class Vec3
         return *this;
     }
 
-    Vec3<T>& operator -= (Vec3<T> v)
+    Vec3f& operator -= (Vec3f v)
     {
         x -= v.x;
         y -= v.y;
@@ -125,7 +126,7 @@ class Vec3
         return *this;
     }
 
-    Vec3<T>& operator *= (Vec3<T> v)
+    Vec3f& operator *= (Vec3f v)
     {
         x *= v.x;
         y *= v.y;
@@ -133,32 +134,27 @@ class Vec3
         return *this;
     }
 
-    Vec3<T> operator - ()
+    Vec3f operator - ()
     {
-        return Vec3<T>(-x, -y, -z);
+        return Vec3f(-x, -y, -z);
     }
 
-    T length2()
+    double length2()
     {
         return x*x + y*y + z*z;
     }
 
-    T length()
+    double length()
     {
         return sqrt(length2());
     }
 
-    friend std::ostream& operator << (std::ostream &os, Vec3<T> v)
+    friend std::ostream& operator << (std::ostream &os, Vec3f v)
     {
         os << "[" << v.x << "," << v.y << "," << v.z << "]";
         return os;
     }
 
 };
-
-
-typedef Vec3<double> Vec3f;
-
-
 
 #endif

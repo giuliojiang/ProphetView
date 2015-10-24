@@ -13,7 +13,6 @@
 
 int main(int argc, char** argv)
 {
-    srand48(13);
     std::vector<Sphere> spheres;
     // position, radius, surface color, reflectivity, transparency, emission color
     spheres.push_back(Sphere(Vec3f( 0.0, -10004, -20), 10000, Vec3f(0.20, 0.20, 0.20), 0, 0.0, Vec3f(0)));
